@@ -1,8 +1,8 @@
 <?php
 session_start();
 include 'partials/_dbconnect.php';
-$pid = $_SESSION['pid'];
-$pname = $_SESSION['pname'];
+$did = $_SESSION['did'];
+$dname = $_SESSION['dname'];
 ?>
 
 /*
@@ -85,7 +85,7 @@ $pname = $_SESSION['pname'];
                 <form>
                     <?php
                     $pid = $_SESSION['pid'];
-                    $sql = "SELECT * FROM `patient` where `pid` = '$pid';";
+                    $sql = "SELECT * FROM `patient` where `did` = '$did';";
                     $result = mysqli_query($conn, $sql);
                     $sno = 1;
                     while ($row = mysqli_fetch_array($result)) {
@@ -108,7 +108,7 @@ $pname = $_SESSION['pname'];
                                                 <div class="form-group form-focus">
                                                     <label class="focus-label">Name</label>
                                                     <input type="text" class="form-control floating"
-                                                        value="<?php echo $row['pname'] ?>" name="name">
+                                                        value="<?php echo $row['dname'] ?>" name="name">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -147,14 +147,14 @@ $pname = $_SESSION['pname'];
                                 <div class="col-md-6">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Phone Number</label>
-                                        <input type="text" class="form-control floating" value="<?php echo $row['phone'] ?>"
+                                        <input type="text" class="form-control floating" value="<?php echo $row['phnumber'] ?>"
                                             name="phone">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Email</label>
-                                        <input type="text" class="form-control floating" value="<?php echo $row['email'] ?>" name="email">
+                                        <input type="text" class="form-control floating" value="Email" name="email">
                                     </div>
                                 </div>
                             </div>
