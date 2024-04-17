@@ -1,9 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
-    header("location:login.php");
-    exit;
-}
+
 
 include ("partials/_dbconnect.php");
 ?>
@@ -44,7 +41,8 @@ include ("partials/_dbconnect.php");
                             <img class="rounded-circle" src="assets/img/user.jpg" width="24" alt="Admin">
                             <span class="status online"></span>
                         </span>
-                        <span>Admin</span>
+                        <span><?php echo $_SESSION['dname'] ?></span>
+                        
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="profile.php">My Profile</a>

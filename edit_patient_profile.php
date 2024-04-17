@@ -4,6 +4,12 @@ include 'partials/_dbconnect.php';
 $pid = $_SESSION['pid'];
 $pname = $_SESSION['pname'];
 ?>
+
+/*
+
+    SQl Query baki che, ama 
+
+*/
 <!DOCTYPE html>
 <html lang="en">
 
@@ -102,7 +108,7 @@ $pname = $_SESSION['pname'];
                                                 <div class="form-group form-focus">
                                                     <label class="focus-label">Name</label>
                                                     <input type="text" class="form-control floating"
-                                                        value="<?php echo $row['pname'] ?>">
+                                                        value="<?php echo $row['pname'] ?>" name="name">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -110,15 +116,15 @@ $pname = $_SESSION['pname'];
                                                     <label class="focus-label">Birth Date</label>
                                                     <div class="cal-icon">
                                                         <input class="form-control floating datetimepicker" type="text"
-                                                            value="05/06/1985">
+                                                            value="05/06/1985" name="dob">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group form-focus select-focus">
                                                     <label class="focus-label">Gendar</label>
-                                                    <select class="select form-control floating">
-                                                        <option value="male selected">Male</option>
+                                                    <select class="select form-control floating" name="gender">
+                                                        <option value="male">Male</option>
                                                         <option value="female">Female</option>
                                                     </select>
                                                 </div>
@@ -134,70 +140,29 @@ $pname = $_SESSION['pname'];
                                 <div class="col-md-12">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Address</label>
-                                        <input type="text" class="form-control floating" value="<?php echo $row['address'] ?>">
+                                        <input type="text" class="form-control floating"
+                                            value="<?php echo $row['address'] ?>" name="address">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Phone Number</label>
-                                        <input type="text" class="form-control floating" value="<?php echo $row['phone'] ?>">
+                                        <input type="text" class="form-control floating" value="<?php echo $row['phone'] ?>"
+                                            name="phone">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group form-focus">
                                         <label class="focus-label">Email</label>
-                                        <input type="text" class="form-control floating" value="Email">
+                                        <input type="text" class="form-control floating" value="Email" name="email">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="card-box">
-                            <h3 class="card-title">Experience Informations</h3>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group form-focus">
-                                        <label class="focus-label">Company Name</label>
-                                        <input type="text" class="form-control floating" value="Digital Devlopment Inc">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group form-focus">
-                                        <label class="focus-label">Location</label>
-                                        <input type="text" class="form-control floating" value="United States">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group form-focus">
-                                        <label class="focus-label">Job Position</label>
-                                        <input type="text" class="form-control floating" value="Web Developer">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group form-focus">
-                                        <label class="focus-label">Period From</label>
-                                        <div class="cal-icon">
-                                            <input type="text" class="form-control floating datetimepicker"
-                                                value="01/07/2007">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group form-focus">
-                                        <label class="focus-label">Period To</label>
-                                        <div class="cal-icon">
-                                            <input type="text" class="form-control floating datetimepicker"
-                                                value="08/06/2018">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="add-more">
-                                <a href="#" class="btn btn-primary"><i class="fa fa-plus"></i> Add More Experience</a>
-                            </div>
-                        </div>
+
                         <div class="text-center m-t-20">
-                            <button class="btn btn-primary submit-btn" type="button">Save</button>
+                            <!-- <button class="btn btn-primary submit-btn" type="button">Save</button> -->
+                            <input type="submit" value="Save" class="btn btn-primary submit-btn">
                         </div>
                         <?php
                     }
