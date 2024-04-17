@@ -1,16 +1,11 @@
 <?php
 session_start();
+
+if(!isset($_SESSION['dname'])){
+    header("Location: .php");
+}
 include("partials/_dbconnect.php");
-$user = $_SESSION['user'];
-
-if($user == "patient")
-{
-    $pname =$_SESSION['pname'];
-    $pid = $_SESSION['pid'];
-
-    $sql = "SELECT * FROM `appointment` WHERE `pid`= '$pid' and `pname`='$pname';";
-    $result = mysqli_query($conn, $sql);
- }
+$dname = $_SESSION['dname'];
 ?>
 
 <!DOCTYPE html>
@@ -80,9 +75,8 @@ if($user == "patient")
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $sql = "SELECT * FROM `appointment`;";
+                                    $sql = "SELECT * FROM `appointment` WHERE `dname` = '$dname'";
                                     $result = mysqli_query($conn, $sql);
-                                    $sno = 0;
                                     while ($row = mysqli_fetch_array($result)) {
                                         ?>
                                         <tr>

@@ -184,54 +184,12 @@ include("partials/_dbconnect.php");
                 </div>
                 <div class="row">
                     <div class="col-12 col-md-6 col-lg-8 col-xl-8">
-                        <div class="card">
+                        <!-- <div class="card">
                             <div class="card-header">
                                 <h4 class="card-title d-inline-block">Patients List</h4>
                             </div>
-                            <div class="card-block">
-                                <div class="table-responsive">
-                                    <table class="table mb-0 new-patient-table">
-                                        <thead>
-                                            <tr>
-                                                <th>Patient name</th>
-                                                <th>Patient Phone number</th>
-                                                <th>Patient age</th>
-                                                <th>email</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
-                                            $sql = "SELECT * FROM `patient` where `pid` = '$pid';";
-                                            $result = mysqli_query($conn, $sql);
-                                            while ($row = mysqli_fetch_array($result)) {
-                                                ?>
-                                                <tr>
-                                                    <td>
-                                                        <img width="28" height="28" class="rounded-circle"
-                                                            src="assets/img/user.jpg" alt="">
-                                                        <h2>
-                                                            <?php echo $row['pname']; ?>
-                                                        </h2>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['phone']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['page']; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php echo $row['email']; ?>
-                                                    </td>
-
-                                                </tr>
-                                                <?php
-                                            }
-                                            ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
+                           
+                        </div> -->
                     </div>
                     <div class="col-12 col-md-6 col-lg-4 col-xl-4">
                         <div class="hospital-barchart">

@@ -13,13 +13,12 @@ echo '<div class="header">
             <span class="user-img"><img class="rounded-circle" src="assets/img/user.jpg" width="40"
                     alt="Admin">
                 <span class="status online"></span></span>
-            <span></span>
+            <span>', $_SESSION['dname'].'</span>
         </a>
         <div class="dropdown-menu">
-            <a class="dropdown-item" href="profile.php">My Profile</a>
-            <a class="dropdown-item" href="edit-profile.php">Edit Profile</a>
-            <a class="dropdown-item" href="settings.php">Settings</a>
-            <a class="dropdown-item" href="login.php">Logout</a>
+            <a class="dropdown-item" href="doctor_profile.php">My Profile</a>
+            <a class="dropdown-item" href="edit_doctor_profile.php">Edit Profile</a>
+            <a class="dropdown-item" href="logout.php">Logout</a>
         </div>
     </li>
 </ul>
@@ -27,10 +26,9 @@ echo '<div class="header">
     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
             class="fa fa-ellipsis-v"></i></a>
     <div class="dropdown-menu dropdown-menu-right">
-        <a class="dropdown-item" href="profile.php">My Profile</a>
-        <a class="dropdown-item" href="edit-profile.php">Edit Profile</a>
-        <a class="dropdown-item" href="settings.php">Settings</a>
-        <a class="dropdown-item" href="login.php">Logout</a>
+        <a class="dropdown-item" href="doctor_profile.php">My Profile</a>
+        <a class="dropdown-item" href="edit_doctor_profile.php">Edit Profile</a>
+        <a class="dropdown-item" href="logout.php">Logout</a>
     </div>
 </div>
 </div>';

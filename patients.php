@@ -42,7 +42,7 @@ include("partials/_dbconnect.php");
                         <span class="user-img"><img class="rounded-circle" src="assets/img/user.jpg" width="40"
                                 alt="Admin">
                             <span class="status online"></span></span>
-                        <span>Admin</span>
+                        <span><?php echo $_SESSION['dname']?></span>
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="profile.php">My Profile</a>

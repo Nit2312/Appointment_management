@@ -7,7 +7,7 @@ if ($user == "patient") {
     echo '<ul>
 <li class="menu-title">Main</li>
 <li>
-    <a href="index.php"><i class="fa fa-dashboard"></i><span>Dashboard</span></a>
+    <a href="patient_index.php"><i class="fa fa-dashboard"></i><span>Dashboard</span></a>
 </li>
 <ul> ';
 }
@@ -15,7 +15,7 @@ if ($user == "doctor") {
     echo '<ul>
     <li class="menu-title">Main</li>
     <li>
-        <a href="index.php"><i class="fa fa-dashboard"></i><span>Dashboard</span></a>
+        <a href="doctor_index.php"><i class="fa fa-dashboard"></i><span>Dashboard</span></a>
     </li>
     
 <li>
@@ -25,7 +25,7 @@ if ($user == "doctor") {
     <a href="appointments.php"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
 </li>
 <li>
-    <a href="schedule.php"><i class="fa fa-calendar-check-o"></i> <span>Doctor Schedule</span></a>
+    <a href="$"><i class="fa fa-calendar-check-o"></i> <span>Doctor Schedule</span></a>
 </li>
 <ul> ';
 
@@ -46,7 +46,7 @@ if ($user == "admin") {
     <a href="appointments.php"><i class="fa fa-calendar"></i> <span>Appointments</span></a>
 </li>
 <li>
-    <a href="schedule.php"><i class="fa fa-calendar-check-o"></i> <span>Doctor Schedule</span></a>
+    <a href="#"><i class="fa fa-calendar-check-o"></i> <span>Doctor Schedule</span></a>
 </li>
 
     <li>
