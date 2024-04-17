@@ -41,12 +41,12 @@ $pname = $_SESSION['pname'];
                         <span class="user-img"><img class="rounded-circle" src="assets/img/user.jpg" width="40"
                                 alt="Admin">
                             <span class="status online"></span></span>
-                        <span><?php echo $_SESSION['pname'] ?></span>
+                        <span><?php echo $_SESSION['pname'] ?></span>   
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="profile.php">My Profile</a>
                         <a class="dropdown-item" href="edit_patient_profile.php">Edit Profile</a>
-                        <a class="dropdown-item" href="login.php">Logout</a>
+                        <a class="dropdown-item" href="logout.php">Logout</a>
                     </div>
                 </li>
             </ul>

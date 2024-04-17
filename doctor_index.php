@@ -48,7 +48,7 @@ include ("partials/_dbconnect.php");
                         <a class="dropdown-item" href="profile.php">My Profile</a>
                         <a class="dropdown-item" href="edit-profile.php">Edit Profile</a>
                         <a class="dropdown-item" href="settings.php">Settings</a>
-                        <a class="dropdown-item" href="login.php">Logout</a>
+                        <a class="dropdown-item" href="logout.php">Logout</a>
                     </div>
                 </li>
             </ul>
