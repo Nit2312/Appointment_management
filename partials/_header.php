@@ -13,7 +13,7 @@ echo '<div class="header">
             <span class="user-img"><img class="rounded-circle" src="assets/img/user.jpg" width="40"
                     alt="Admin">
                 <span class="status online"></span></span>
-            <span>', $_SESSION['dname'].'</span>
+            <span>',$_SESSION['dname'].'</span>
         </a>
         <div class="dropdown-menu">
             <a class="dropdown-item" href="doctor_profile.php">My Profile</a>

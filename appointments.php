@@ -1,11 +1,11 @@
 <?php
 session_start();
-
-if(!isset($_SESSION['dname'])){
-    header("Location: .php");
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
+    header("location:login.php");
+    exit;
 }
-include("partials/_dbconnect.php");
-$dname = $_SESSION['dname'];
+include ("partials/_dbconnect.php");
+$user = $_SESSION['user'];
 ?>
 
 <!DOCTYPE html>
@@ -28,9 +28,49 @@ $dname = $_SESSION['dname'];
 
 <body>
     <div class="main-wrapper">
-        <?php 
-            include("partials/_header.php");
-        ?>
+        <div class="header">
+            <div class="header-left">
+                <a href="index.php" class="logo">
+                    <img src="assets/img/logo.png" width="35" height="35" alt=""> <span>Preclinic</span>
+                </a>
+            </div>
+            <a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
+            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
+            <ul class="nav user-menu float-right">
+
+                <li class="nav-item dropdown has-arrow">
+                    <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
+                        <span class="user-img"><img class="rounded-circle" src="assets/img/user.jpg" width="40"
+                                alt="Admin">
+                            <span class="status online"></span></span>
+                        <span><?php if ($user == "doctor") {
+                            echo $_SESSION['dname'];
+                        } 
+                        else
+                        {
+                            echo "Admin";
+                        }
+                        ?></span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="profile.php">My Profile</a>
+                        <a class="dropdown-item" href="edit-profile.php">Edit Profile</a>
+                        <a class="dropdown-item" href="settings.php">Settings</a>
+                        <a class="dropdown-item" href="logout.php">Logout</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="dropdown mobile-user-menu float-right">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
+                        class="fa fa-ellipsis-v"></i></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="profile.php">My Profile</a>
+                    <a class="dropdown-item" href="edit-profile.php">Edit Profile</a>
+                    <a class="dropdown-item" href="settings.php">Settings</a>
+                    <a class="dropdown-item" href="logout.php">Logout</a>
+                </div>
+            </div>
+        </div>
         <div class="sidebar" id="sidebar">
             <div class="sidebar-inner slimscroll">
                 <div id="sidebar-menu" class="sidebar-menu">
@@ -38,7 +78,7 @@ $dname = $_SESSION['dname'];
                         <div class="sidebar-inner slimscroll">
                             <div id="sidebar-menu" class="sidebar-menu">
                                 <?php
-                                include("partials/_navbar.php");
+                                include ("partials/_navbar.php");
                                 ?>
                             </div>
                         </div>
@@ -75,43 +115,13 @@ $dname = $_SESSION['dname'];
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $sql = "SELECT * FROM `appointment` WHERE `dname` = '$dname'";
-                                    $result = mysqli_query($conn, $sql);
-                                    while ($row = mysqli_fetch_array($result)) {
-                                        ?>
-                                        <tr>
-                                            <td>
-                                                <?php echo $row['pid']; ?>
-                                            </td>
-                                            <td><img width="28" height="28" src="assets/img/user.jpg"
-                                                    class="rounded-circle m-r-5" alt="">
-                                                <?php echo $row['pname']; ?>
-                                            </td>
-                                            <td>
-                                                <?php echo $row['page']; ?>
-                                            </td>
-                                            <td>
-                                                <?php echo $row['dname']; ?>
-                                            </td>
-                                            <td><?php echo $row['dept']?></td>
-                                            <td><?php echo $row['date']?></td>
-                                            <td><?php echo $row['time']?></td>
-                                            <!-- <td><span class="custom-badge status-red">Inactive</span></td> -->
-                                            <td class="text-right">
-                                                <div class="dropdown dropdown-action">
-                                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown"
-                                                        aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item" href="edit-appointment.php"><i
-                                                                class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                        <a class="dropdown-item" href="delete-appointment.php" data-toggle="modal"
-                                                            data-target="#delete_appointment"><i
-                                                            class="fa fa-trash-o m-r-5" <?php $row['pid']?>></i> Delete</a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <?php
+                                    if ($user == "doctor") {
+                                        $dname = $_SESSION['dname'];
+                                        include 'partials/_doc_appointment.php';
+                                    }
+                                    if ($user == "admin") {
+                                        include 'partials/_appointment.php';
+                                        
                                     }
                                     ?>
                                 </tbody>

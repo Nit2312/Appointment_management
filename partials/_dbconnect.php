@@ -2,7 +2,7 @@
 $host = 'localhost:3307';
 $username = 'root';
 $password = '';
-$dbname = 'project';
+$dbname = 'hospital';
 
 $conn = new mysqli($host, $username, $password, $dbname);
 if (!$conn) {

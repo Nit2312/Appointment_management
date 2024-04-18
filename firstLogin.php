@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['loggedin'] = true;
             $_SESSION['user'] = $user;
             header("location:login.php");
+         
         } else {
             echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
             <strong>Error!</strong> plz enter valid username

@@ -142,7 +142,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                     <div class="form-group">
                                         <label>Date</label>
                                         <div class="cal-icon">
-                                            <input type="text" class="form-control datetimepicker" name="date">
+                                            <input type="text" class="form-control" name="date">
                                         </div>
                                     </div>
                                 </div>
