@@ -28,49 +28,9 @@ $user = $_SESSION['user'];
 
 <body>
     <div class="main-wrapper">
-        <div class="header">
-            <div class="header-left">
-                <a href="index.php" class="logo">
-                    <img src="assets/img/logo.png" width="35" height="35" alt=""> <span>Preclinic</span>
-                </a>
-            </div>
-            <a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
-            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
-            <ul class="nav user-menu float-right">
-
-                <li class="nav-item dropdown has-arrow">
-                    <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
-                        <span class="user-img"><img class="rounded-circle" src="assets/img/user.jpg" width="40"
-                                alt="Admin">
-                            <span class="status online"></span></span>
-                        <span><?php if ($user == "doctor") {
-                            echo $_SESSION['dname'];
-                        } 
-                        else
-                        {
-                            echo "Admin";
-                        }
-                        ?></span>
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="profile.php">My Profile</a>
-                        <a class="dropdown-item" href="edit-profile.php">Edit Profile</a>
-                        <a class="dropdown-item" href="settings.php">Settings</a>
-                        <a class="dropdown-item" href="logout.php">Logout</a>
-                    </div>
-                </li>
-            </ul>
-            <div class="dropdown mobile-user-menu float-right">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
-                        class="fa fa-ellipsis-v"></i></a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="profile.php">My Profile</a>
-                    <a class="dropdown-item" href="edit-profile.php">Edit Profile</a>
-                    <a class="dropdown-item" href="settings.php">Settings</a>
-                    <a class="dropdown-item" href="logout.php">Logout</a>
-                </div>
-            </div>
-        </div>
+        <?php
+        include 'partials/_header.php';
+        ?>
         <div class="sidebar" id="sidebar">
             <div class="sidebar-inner slimscroll">
                 <div id="sidebar-menu" class="sidebar-menu">
@@ -121,48 +81,48 @@ $user = $_SESSION['user'];
                                     }
                                     if ($user == "admin") {
                                         include 'partials/_appointment.php';
-                                        
+
                                     }
                                     ?>
                                 </tbody>
                             </table>
-                        </d
+                            </d </div>
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <div id="delete_appointment" class="modal fade delete-modal" role="dialog">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-body text-center">
-                            <img src="assets/img/sent.png" alt="" width="50" height="46">
-                            <h3>Are you sure want to delete this Appointment?</h3>
-                            <div class="m-t-20"> <a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                    <div id="delete_appointment" class="modal fade delete-modal" role="dialog">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-body text-center">
+                                    <img src="assets/img/sent.png" alt="" width="50" height="46">
+                                    <h3>Are you sure want to delete this Appointment?</h3>
+                                    <div class="m-t-20"> <a href="#" class="btn btn-white"
+                                            data-dismiss="modal">Close</a>
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="sidebar-overlay" data-reff=""></div>
-    <script src="assets/js/jquery-3.2.1.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/jquery.slimscroll.js"></script>
-    <script src="assets/js/select2.min.js"></script>
-    <script src="assets/js/app.js"></script>
-    <script>
-        $(function () {
-            $('#datetimepicker3').datetimepicker({
-                format: 'LT'
-            });
-            $('#datetimepicker4').datetimepicker({
-                format: 'LT'
-            });
-        });
-    </script>
+            <div class="sidebar-overlay" data-reff=""></div>
+            <script src="assets/js/jquery-3.2.1.min.js"></script>
+            <script src="assets/js/popper.min.js"></script>
+            <script src="assets/js/bootstrap.min.js"></script>
+            <script src="assets/js/jquery.slimscroll.js"></script>
+            <script src="assets/js/select2.min.js"></script>
+            <script src="assets/js/app.js"></script>
+            <script>
+                $(function () {
+                    $('#datetimepicker3').datetimepicker({
+                        format: 'LT'
+                    });
+                    $('#datetimepicker4').datetimepicker({
+                        format: 'LT'
+                    });
+                });
+            </script>
 </body>
 
 

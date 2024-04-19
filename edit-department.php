@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 
 ?>
@@ -8,6 +8,7 @@ session_start();
 
 
 <!-- edit-department24:07-->
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
@@ -18,52 +19,22 @@ session_start();
     <link rel="stylesheet" type="text/css" href="assets/css/select2.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <!--[if lt IE 9]>
-		<script src="assets/js/html5shiv.min.js"></script>
-		<script src="assets/js/respond.min.js"></script>
-	<![endif]-->
+        <script src="assets/js/html5shiv.min.js"></script>
+        <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
 </head>
 
 <body>
     <div class="main-wrapper">
-        <div class="header">
-			<div class="header-left">
-				<a href="index-2.php" class="logo">
-					<img src="assets/img/logo.png" width="35" height="35" alt=""> <span>Preclinic</span>
-				</a>
-			</div>
-			<a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
-            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
-            <ul class="nav user-menu float-right">
-                <li class="nav-item dropdown has-arrow">
-                    <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
-                        <span class="user-img"><img class="rounded-circle" src="assets/img/user.jpg" width="40" alt="Admin">
-							<span class="status online"></span></span>
-                        <span>Admin</span>
-                    </a>
-					<div class="dropdown-menu">
-						<a class="dropdown-item" href="profile.php">My Profile</a>
-						<a class="dropdown-item" href="edit-profile.php">Edit Profile</a>
-						<a class="dropdown-item" href="settings.php">Settings</a>
-						<a class="dropdown-item" href="logout.php">Logout</a>
-					</div>
-                </li>
-            </ul>
-            <div class="dropdown mobile-user-menu float-right">
-                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="profile.php">My Profile</a>
-                    <a class="dropdown-item" href="edit-profile.php">Edit Profile</a>
-                    <a class="dropdown-item" href="settings.php">Settings</a>
-                    <a class="dropdown-item" href="logout.php">Logout</a>
-                </div>
-            </div>
-        </div>
+        <?php
+        include 'partials/_header.php';
+        ?>
         <div class="sidebar" id="sidebar">
             <div class="sidebar-inner slimscroll">
                 <div id="sidebar-menu" class="sidebar-menu">
-                   <?php 
+                    <?php
                     include ("partials/_navbar.php");
-                   ?>
+                    ?>
                 </div>
             </div>
         </div>
@@ -77,10 +48,10 @@ session_start();
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2">
                         <form>
-							<div class="form-group">
-								<label>Department Name</label>
-								<input class="form-control" type="text" value="Dentists">
-							</div>
+                            <div class="form-group">
+                                <label>Department Name</label>
+                                <input class="form-control" type="text" value="Dentists">
+                            </div>
                             <div class="form-group">
                                 <label>Description</label>
                                 <textarea cols="30" rows="4" class="form-control"></textarea>
@@ -97,7 +68,7 @@ session_start();
     </div>
     <div class="sidebar-overlay" data-reff=""></div>
     <script src="assets/js/jquery-3.2.1.min.js"></script>
-	<script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.slimscroll.js"></script>
     <script src="assets/js/select2.min.js"></script>
@@ -106,4 +77,5 @@ session_start();
 
 
 <!-- edit-department24:07-->
+
 </html>

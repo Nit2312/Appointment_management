@@ -5,7 +5,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
     exit;
 }
 
-include("partials/_dbconnect.php");
+include ("partials/_dbconnect.php");
 ?>
 
 <!DOCTYPE html>
@@ -28,46 +28,14 @@ include("partials/_dbconnect.php");
 
 <body>
     <div class="main-wrapper">
-        <div class="header">
-            <div class="header-left">
-                <a href="index-2.php" class="logo">
-                    <img src="assets/img/logo.png" width="35" height="35" alt=""> <span>Preclinic</span>
-                </a>
-            </div>
-            <a id="toggle_btn" href="javascript:void(0);"><i class="fa fa-bars"></i></a>
-            <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"><i class="fa fa-bars"></i></a>
-            <ul class="nav user-menu float-right">
-
-                <li class="nav-item dropdown has-arrow">
-                    <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
-                        <span class="user-img">
-                            <img class="rounded-circle" src="assets/img/user.jpg" width="24" alt="Admin">
-                            <span class="status online"></span>
-                        </span>
-                        <span><?php echo $_SESSION['pname']?></span>
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="Patientprofile.php">My Profile</a>
-                        <a class="dropdown-item" href="edit-profile.php">Edit Profile</a>
-                        <a class="dropdown-item" href="logout.php">Logout</a>
-                    </div>
-                </li>
-            </ul>
-            <div class="dropdown mobile-user-menu float-right">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
-                        class="fa fa-ellipsis-v"></i></a>
-                <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="PatientProfile.php">My Profile</a>
-                    <a class="dropdown-item" href="edit-profile.php">Edit Profile</a>
-                    <a class="dropdown-item" href="logout.php">Logout</a>
-                </div>
-            </div>
-        </div>
+        <?php
+        include 'partials/_header.php';
+        ?>
         <div class="sidebar" id="sidebar">
             <div class="sidebar-inner slimscroll">
                 <div id="sidebar-menu" class="sidebar-menu">
                     <?php
-                    include("partials/_navbar.php");
+                    include ("partials/_navbar.php");
                     ?>
                 </div>
             </div>
@@ -75,7 +43,7 @@ include("partials/_dbconnect.php");
         <div class="page-wrapper">
             <div class="content">
                 <?php
-                include("partials/_sidebar.php");
+                include ("partials/_sidebar.php");
                 ?>
                 <div class="row">
                     <div class="col-12 col-md-6 col-lg-8 col-xl-8">
