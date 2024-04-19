@@ -54,6 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo '<script>
         alert("Successfull! Your appointment has been booked succesfully")
     </script>';
+            header("location:appointments.php");
         }
     }
 
@@ -141,8 +142,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Date</label>
-                                        <div class="cal-icon">
-                                            <input type="text" class="form-control" name="date">
+                                        <div class="">
+                                            <input type="date" class="form-control" name="date">
                                         </div>
                                     </div>
                                 </div>

@@ -126,7 +126,7 @@ $user = $_SESSION['user'];
                                     ?>
                                 </tbody>
                             </table>
-                        </div>
+                        </d
                     </div>
                 </div>
             </div>

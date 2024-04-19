@@ -1,6 +1,11 @@
-<?php 
+<?php
 session_start();
-include("partials/_dbconnect.php");
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
+    header("location:login.php");
+    exit;
+}
+include ("partials/_dbconnect.php");
+$user = $_SESSION['user'];
 ?>
 
 <!DOCTYPE html>
@@ -21,9 +26,9 @@ include("partials/_dbconnect.php");
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <!--[if lt IE 9]>
-		<script src="assets/js/html5shiv.min.js"></script>
-		<script src="assets/js/respond.min.js"></script>
-	<![endif]-->
+        <script src="assets/js/html5shiv.min.js"></script>
+        <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
 </head>
 
 <body>
@@ -42,7 +47,13 @@ include("partials/_dbconnect.php");
                         <span class="user-img"><img class="rounded-circle" src="assets/img/user.jpg" width="40"
                                 alt="Admin">
                             <span class="status online"></span></span>
-                        <span><?php echo $_SESSION['dname']?></span>
+                        <!-- <span>Admin</span> -->
+                        <span><?php if ($user == "doctor") {
+                            echo $_SESSION['dname'];
+                        } else {
+                            echo "Admin";
+                        }
+                        ?></span>
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="profile.php">My Profile</a>
@@ -64,8 +75,8 @@ include("partials/_dbconnect.php");
         <div class="sidebar" id="sidebar">
             <div class="sidebar-inner slimscroll">
                 <div id="sidebar-menu" class="sidebar-menu">
-                <?php
-                    include("partials/_navbar.php");
+                    <?php
+                    include ("partials/_navbar.php");
                     ?>
                 </div>
             </div>
@@ -102,46 +113,33 @@ include("partials/_dbconnect.php");
                                     $sno = 0;
                                     while ($row = mysqli_fetch_array($result)) {
                                         ?>
-                                    <tr>
-                                        <td><img width="28" height="28" src="assets/img/user.jpg"
-                                                class="rounded-circle m-r-5" alt=""><?php echo $row['pname'];?></td>
-                                        <td><?php echo $row['page'];?></td>
-                                        <td><?php echo $row['address'];?></td>
-                                        <td><?php echo $row['phone'];?></td>
-                                        <td><?php echo $row['email']?></td>
-                                        <td class="text-right">
-                                            <div class="dropdown dropdown-action">
-                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown"
-                                                    aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
-                                                <div class="dropdown-menu dropdown-menu-right">
-                                                    <a class="dropdown-item" href="edit-patient.php"><i
-                                                            class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                    <a class="dropdown-item" href="#" data-toggle="modal"
-                                                        data-target="#delete_patient"><i
-                                                            class="fa fa-trash-o m-r-5"></i> Delete</a>
+                                        <tr>
+                                            <td><img width="28" height="28" src="assets/img/user.jpg"
+                                                    class="rounded-circle m-r-5" alt=""><?php echo $row['pname']; ?></td>
+                                            <td><?php echo $row['page']; ?></td>
+                                            <td><?php echo $row['address']; ?></td>
+                                            <td><?php echo $row['phone']; ?></td>
+                                            <td><?php echo $row['email'] ?></td>
+                                            <td class="text-right">
+                                                <div class="dropdown dropdown-action">
+                                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown"
+                                                        aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a class="dropdown-item" href="edit-patient.php"><i
+                                                                class="fa fa-pencil m-r-5"></i> Edit</a>
+                                                        <a class="dropdown-item"
+                                                            href="patient_delete.php?pid=<?php echo $row['pid']; ?>"
+                                                            data-toggle="modal"><i class="fa fa-trash-o m-r-5"></i>
+                                                            Delete</a>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <?php
+                                            </td>
+                                        </tr>
+                                        <?php
                                     }
                                     ?>
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div id="delete_patient" class="modal fade delete-modal" role="dialog">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-body text-center">
-                        <img src="assets/img/sent.png" alt="" width="50" height="46">
-                        <h3>Are you sure want to delete this Patient?</h3>
-                        <div class="m-t-20"> <a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
-                            <button type="submit" class="btn btn-danger">Delete</button>
                         </div>
                     </div>
                 </div>

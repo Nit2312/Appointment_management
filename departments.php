@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 ?>
 <!DOCTYPE html>
@@ -35,7 +35,7 @@ session_start();
             <ul class="nav user-menu float-right">
                 <li class="nav-item dropdown has-arrow">
                     <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
-                        <span class="user-img"><img class="rounded-circle" src="assets/img/user.jpg" width="40"
+                        <span class="user-img"><img class="rounded-circle" src="assets/img/doctor-03.jpg" width="40"
                                 alt="Admin">
                             <span class="status online"></span></span>
                         <span>Admin</span>
@@ -62,8 +62,8 @@ session_start();
         <div class="sidebar" id="sidebar">
             <div class="sidebar-inner slimscroll">
                 <div id="sidebar-menu" class="sidebar-menu">
-                    <?php 
-                        include 'partials/_navbar.php';
+                    <?php
+                    include 'partials/_navbar.php';
                     ?>
                 </div>
             </div>
@@ -97,14 +97,17 @@ session_start();
 
                                     $sql = "SELECT * FROM `dept`;";
                                     $result = mysqli_query($conn, $sql);
-
                                     if (!$result) {
                                         echo "Error" . mysqli_error($conn);
-                                    } else {
+                                    } 
+                                    else {
+                                        $sno = 0;
                                         while ($row = mysqli_fetch_array($result)) {
+                                            $sno++;
+                                            
                                             ?>
                                             <tr>
-                                                <td><?php echo $row['sno'] ?></td>
+                                                <td><?php echo $sno ?></td>
                                                 <td><?php echo $row['dept_name'] ?></td>
                                                 <td class="text-right">
                                                     <div class="dropdown dropdown-action">
@@ -113,16 +116,16 @@ session_start();
                                                         <div class="dropdown-menu dropdown-menu-right">
                                                             <a class="dropdown-item" href="edit-department.php"><i
                                                                     class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                            <a class="dropdown-item" href="#" data-toggle="modal"
-                                                                data-target="#delete_department"><i
-                                                                    class="fa fa-trash-o m-r-5"></i> Delete</a>
+                                                            <a class="dropdown-item"
+                                                                href="delete_dept.php?sno=<?php echo $row['sno']; ?>"
+                                                                data-toggle="modal"><i class="fa fa-trash-o m-r-5"></i>
+                                                                Delete</a>
                                                         </div>
                                                     </div>
                                                 </td>
                                             </tr>
                                             <?php
                                         }
-
                                     }
                                     ?>
 
