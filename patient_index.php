@@ -67,7 +67,7 @@ include ("partials/_dbconnect.php");
                                         <tbody class="mt-0">
                                             <?php
                                             $pid = $_SESSION['pid'];
-                                            $sql = "SELECT * FROM `appointment` where `pid` = '$pid';";
+                                            $sql = "SELECT * FROM `appointment` where `pid` = '$pid'";
                                             $result = mysqli_query($conn, $sql);
                                             $sno = 1;
                                             while ($row = mysqli_fetch_array($result)) {

@@ -90,7 +90,7 @@ if ($user == "admin") {
         <li class="nav-item dropdown has-arrow">
             <a href="#" class="dropdown-toggle nav-link user-link" data-toggle="dropdown">
                 <span class="user-img">
-                    <img class="rounded-circle" src="assets/img/doctor-03.jpg" width="24" alt="Admin">
+                    <img class="rounded-circle" src="assets/img/user-06.jpg" width="24" alt="Admin">
                     <span class="status online"></span>
                 </span>
                 <span>Admin</span>

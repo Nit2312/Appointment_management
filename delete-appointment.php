@@ -1,10 +1,10 @@
 <?php
 include ("partials/_dbconnect.php");
 
-if (isset($_GET['pid'])) {
-    $pid = $_GET['pid'];
+if (isset($_GET['app_id'])) {
+    $app_id = $_GET['app_id'];
     $delete = true;
-    $sql = "DELETE FROM `appointment` WHERE `appointment`.`pid` = $pid";
+    $sql = "DELETE FROM `appointment` WHERE `appointment`.`app_id` = $app_id";
     $result = mysqli_query($conn, $sql);
     if (!$result) {
         echo "Error" . mysqli_error($conn);

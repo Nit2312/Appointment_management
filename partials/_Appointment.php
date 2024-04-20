@@ -1,11 +1,13 @@
 <?php
 $sql = "SELECT * FROM `appointment`";
 $result = mysqli_query($conn, $sql);
+$sno = 0;
 while ($row = mysqli_fetch_array($result)) {
+    $sno++;
     ?>
     <tr>
         <td>
-            <?php echo $row['pid']; ?>
+            <?php echo $sno; ?>
         </td>
         <td><img width="28" height="28" src="assets/img/user.jpg" class="rounded-circle m-r-5" alt="">
             <?php echo $row['pname']; ?>
@@ -26,7 +28,7 @@ while ($row = mysqli_fetch_array($result)) {
                         class="fa fa-ellipsis-v"></i></a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a class="dropdown-item" href="edit-appointment.php"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                    <a class="dropdown-item" href="delete-appointment.php?pid=<?php echo $row['pid']; ?>"
+                    <a class="dropdown-item" href="delete-appointment.php?app_id=<?php echo $row['app_id']; ?>"
                         data-toggle="modal"><i class="fa fa-trash-o m-r-5"></i>
                         Delete</a>
                 </div>

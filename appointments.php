@@ -63,7 +63,7 @@ $user = $_SESSION['user'];
                             <table class="table table-striped custom-table">
                                 <thead>
                                     <tr>
-                                        <th>Patient ID</th>
+                                        <th>Appointtment ID</th>
                                         <th>Patient Name</th>
                                         <th>Age</th>
                                         <th>Doctor Name</th>
@@ -86,43 +86,42 @@ $user = $_SESSION['user'];
                                     ?>
                                 </tbody>
                             </table>
-                            </d </div>
                         </div>
                     </div>
+                </div>
 
-                    <div id="delete_appointment" class="modal fade delete-modal" role="dialog">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-body text-center">
-                                    <img src="assets/img/sent.png" alt="" width="50" height="46">
-                                    <h3>Are you sure want to delete this Appointment?</h3>
-                                    <div class="m-t-20"> <a href="#" class="btn btn-white"
-                                            data-dismiss="modal">Close</a>
-                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                    </div>
+                <div id="delete_appointment" class="modal fade delete-modal" role="dialog">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-body text-center">
+                                <img src="assets/img/sent.png" alt="" width="50" height="46">
+                                <h3>Are you sure want to delete this Appointment?</h3>
+                                <div class="m-t-20"> <a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
+                                    <button type="submit" class="btn btn-danger">Delete</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="sidebar-overlay" data-reff=""></div>
-            <script src="assets/js/jquery-3.2.1.min.js"></script>
-            <script src="assets/js/popper.min.js"></script>
-            <script src="assets/js/bootstrap.min.js"></script>
-            <script src="assets/js/jquery.slimscroll.js"></script>
-            <script src="assets/js/select2.min.js"></script>
-            <script src="assets/js/app.js"></script>
-            <script>
-                $(function () {
-                    $('#datetimepicker3').datetimepicker({
-                        format: 'LT'
-                    });
-                    $('#datetimepicker4').datetimepicker({
-                        format: 'LT'
-                    });
+        </div>
+        <div class="sidebar-overlay" data-reff=""></div>
+        <script src="assets/js/jquery-3.2.1.min.js"></script>
+        <script src="assets/js/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.slimscroll.js"></script>
+        <script src="assets/js/select2.min.js"></script>
+        <script src="assets/js/app.js"></script>
+        <script>
+            $(function () {
+                $('#datetimepicker3').datetimepicker({
+                    format: 'LT'
                 });
-            </script>
+                $('#datetimepicker4').datetimepicker({
+                    format: 'LT'
+                });
+            });
+        </script>
 </body>
 
 
